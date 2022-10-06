@@ -1,0 +1,35 @@
+{
+  "name": "n3t-decentralized-raffles",
+  "version": "1.0.0",
+  "description": "SPA to participate in a decentralized NFTs raffle",
+  "main": "src/main.tsx",
+  "private": true,
+  "type": "module",
+  "author": "Leandro Gavidia Santamaria <Leandrogavidia1234@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "Raffle",
+    "SPA",
+    "React",
+    "Solidity",
+    "TypeScript",
+    "NFTs",
+    "Web3"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}
