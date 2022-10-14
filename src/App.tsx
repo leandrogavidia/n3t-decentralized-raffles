@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { Global } from "./styles/Global";
 import { theme } from "./styles/theme";
 
-function App() {
+const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
@@ -14,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+export { App};
