@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { WalletButton } from "@components/WalletButton/WalletButton";
-import menuLogo from "@assets/images/menu-n3t-logo.svg";
+import headerLogo from "@assets/images/header-n3t-logo.svg";
 import closedMenu from "@assets/images/closed-menu.svg";
 import openMenu from "@assets/images/open-menu.svg";
 
@@ -13,7 +13,7 @@ const Header: FC = () => {
         <header>
             <nav>
                 <img 
-                    src={menuLogo} 
+                    src={headerLogo} 
                     alt="N3T Logo" 
                     title="N3T Logo" 
                     width="66" 
