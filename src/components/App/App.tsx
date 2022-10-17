@@ -2,15 +2,14 @@ import { ThemeProvider } from "styled-components";
 import { Global } from "@styles/Global";
 import { theme } from "@styles/theme";
 import { FC } from "react";
+import { AppInterface } from "./AppInterface";
 
 const App: FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
       <Global />
-      <div className="App">
-        <h1>N3T Decentralized raffles</h1>
-      </div>
+      <AppInterface />
     </ThemeProvider>
   )
 }
