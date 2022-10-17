@@ -1,8 +1,9 @@
 import { ThemeProvider } from "styled-components";
-import { Global } from "./styles/Global";
-import { theme } from "./styles/theme";
+import { Global } from "@styles/Global";
+import { theme } from "@styles/theme";
+import { FC } from "react";
 
-const App = () => {
+const App: FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
