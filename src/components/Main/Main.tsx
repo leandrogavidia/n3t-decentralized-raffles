@@ -81,6 +81,7 @@ const Main: FC = () => {
                             controls 
                             preload="metadata"
                             poster={videoPoster} 
+                            style={{width: "100%"}}
                         >
                             <source src={mp4N3tVideo} type="video/mp4" />
                             {/* <source src={aviN3tVideo} type="video/avi" /> */}

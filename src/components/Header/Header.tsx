@@ -54,13 +54,13 @@ const Header: FC = () => {
                         Interesting links
                         <ul>
                             <li>
-                                <a href="" target="">Repository on GitHub</a>
+                                <a href="" target="_blank">Repository on GitHub</a>
                             </li>
                             <li>
-                                <a href="" target="">Logo project on Figma</a>
+                                <a href="" target="_blank">Logo project on Figma</a>
                             </li>
                             <li>
-                                <a href="" target="">Web design project on Behance</a>
+                                <a href="" target="_blank">Web design project on Behance</a>
                             </li>
                         </ul>
                     </li>
