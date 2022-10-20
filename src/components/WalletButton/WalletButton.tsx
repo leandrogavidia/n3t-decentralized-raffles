@@ -1,12 +1,22 @@
 import { FC } from "react";
+import styled from "styled-components";
 
 interface WalletAddress {
     address: string
 }
 
+const Button = styled.button`
+    background-image: ${({ theme }) => theme.colors.gradient};
+    border: none;
+    color: ${({ theme }) => theme.colors.white};
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+`
+
 const WalletButton: FC<WalletAddress> = ({ address }) => {
     return (
-        <button>
+        <Button title="Wallet button">
             {
                 address
 
@@ -18,7 +28,7 @@ const WalletButton: FC<WalletAddress> = ({ address }) => {
 
                 "Connect wallet"
             }
-        </button>
+        </Button>
     )
 }
 
