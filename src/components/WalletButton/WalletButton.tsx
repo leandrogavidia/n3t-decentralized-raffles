@@ -12,6 +12,8 @@ const Button = styled.button`
     border-radius: 0.4rem;
     padding: 0.4rem 0.6rem;
     cursor: pointer;
+    font-size: ${({ theme }) => theme.font.size.phone.small}rem;
+    font-weight: ${({ theme }) => theme.font.weight.semiBold};
 `
 
 const WalletButton: FC<WalletAddress> = ({ address }) => {

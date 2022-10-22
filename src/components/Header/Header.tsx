@@ -5,7 +5,7 @@ import closedMenu from "@assets/images/closed-menu.svg";
 import openMenu from "@assets/images/open-menu.svg";
 import styled from "styled-components";
 
-const HeaderComponent = styled.header`
+const HeaderElement = styled.header`
     width: 100%;
     min-height: 4rem;
     background-color: ${({ theme }) => theme.colors.secondary};
@@ -13,16 +13,18 @@ const HeaderComponent = styled.header`
     & > nav {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(2, auto);
+        grid-auto-rows: auto;
         grid-column-gap: 1rem;
         grid-row-gap: 2rem;
         align-items: center;
         justify-items: start;
         margin: 0 auto;
-        padding: 12px 24px;
+        padding: 2rem 2.4rem;
+        max-width: 1920px;
 
         & > .Header_logo {
             cursor: pointer;
+            user-select: none;
         }
 
         & > .Header_walletButton {
@@ -49,12 +51,18 @@ const HeaderComponent = styled.header`
             width: 100%;
             list-style: none;
             color: ${({ theme }) => theme.colors.white};
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.2rem;
 
             li {
                 display: flex;
                 flex-direction: column;
                 overflow: hidden;
                 width: max-content;
+                cursor: pointer;
+                transition: 0.4s color;
+                font-size: ${({ theme }) => theme.font.size.phone.small}rem;
+                font-weight: ${({ theme }) => theme.font.weight.light};
                 
                 &::before, &::after {
                     content: "";
@@ -62,7 +70,6 @@ const HeaderComponent = styled.header`
                     width: 100%;
                     background-color: ${({ theme }) => theme.colors.primary};
                     transition: 0.6s transform;
-                    /* padding: 0.8rem 0; */
                 }
                 
                 &::before {
@@ -76,6 +83,8 @@ const HeaderComponent = styled.header`
                 }
 
                 &:hover {
+                    color: ${({ theme }) => theme.colors.primary};
+                    
                     &::after, &::before {
                         transform: translateX(0);
                     }
@@ -83,32 +92,42 @@ const HeaderComponent = styled.header`
             }
 
             & > .Header_isSubMenu {
+                display: list-item;
+
                 &::before {
-                    content: ">";
-                    margin-right: 0.4rem;
-                    color: ${({ theme }) => theme.colors.primary};
+                    content: "";
                 }
 
-                .Header_submenu {
+                &::after {
+                    content: "";
+                }
+
+                & > .Header_submenu {
                     display: none;
                     flex-direction: column;
                     row-gap: 1rem;
                     list-style: none;
                     margin: 1rem 0 0 2rem;
     
-                    li {
+                    & > li {
+                        transition: 0.4s color;
+
                         a {
+                            border-inline-start: 0.1rem solid ${({ theme }) => theme.colors.primary};
+                            padding-left: 0.4rem;
                             color: ${({ theme }) => theme.colors.white};
                             text-decoration: none;
+                        }
+
+                        &:hover {
+                            a {
+                                color: ${({ theme }) => theme.colors.primary};   
+                            }
                         }
                     }
                 }
 
-                &:hover {
-                    &::before {
-                        content: "<";
-                    }
-
+                &:hover, &:active {
                     .Header_submenu {
                         display: flex;
                     }
@@ -132,7 +151,7 @@ const Header: FC = () => {
     }
 
     return (
-        <HeaderComponent>
+        <HeaderElement>
             <nav>
                 <img 
                     src={headerLogo} 
@@ -185,20 +204,20 @@ const Header: FC = () => {
                             Interesting links
                             <ul className="Header_submenu">
                                 <li>
-                                    <a href="" target="_blank">Repository on GitHub</a>
+                                    <a href="https://github.com/leandrogavidia/n3t-decentralized-raffles" target="_blank">Repository on GitHub</a>
                                 </li>
                                 <li>
-                                    <a href="" target="_blank">Logo project on Figma</a>
+                                    <a href="https://www.figma.com/file/ng6mRL71eBo8rbSHQ1MKcF/N3T-decentralized-raffles?node-id=0%3A1" target="_blank">Logo project on Figma</a>
                                 </li>
                                 <li>
-                                    <a href="" target="_blank">Web design project on Behance</a>
+                                    <a href="https://www.behance.net/gallery/132158333/N3T-Decentralized-raffles" target="_blank">Web design project on Behance</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 }
             </nav>
-        </HeaderComponent>
+        </HeaderElement>
     )
 }
 

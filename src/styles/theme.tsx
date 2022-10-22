@@ -9,6 +9,20 @@ const theme: DefaultTheme = {
 
         white: "#fff",
         black: "#000",
+    },
+    font: {
+        weight: {
+            light: 300,
+            semiBold: 600,
+            bold: 900
+        },
+        size: {
+            phone: {
+                small: 1,
+                medium: 14,
+                large: 1.8
+            }
+        }
     }
 }
 

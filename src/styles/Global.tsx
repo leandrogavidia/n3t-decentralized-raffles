@@ -70,6 +70,7 @@ const Global = createGlobalStyle`
         height: 100vh;
         background-color: ${({ theme }) => theme.colors.white};
         color: ${({ theme }) => theme.colors.text};
+        letter-spacing: 0.02rem;
     }
 `
 
