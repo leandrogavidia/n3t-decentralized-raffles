@@ -19,7 +19,7 @@ const theme: DefaultTheme = {
         size: {
             phone: {
                 small: 1,
-                medium: 14,
+                medium: 1.4,
                 large: 1.8
             }
         }

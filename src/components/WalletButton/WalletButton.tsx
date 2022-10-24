@@ -14,6 +14,11 @@ const Button = styled.button`
     cursor: pointer;
     font-size: ${({ theme }) => theme.font.size.phone.small}rem;
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
+    transition: 0.2s color;
+
+    :hover {
+        color: ${({ theme }) => theme.colors.secondary};
+    }
 `
 
 const WalletButton: FC<WalletAddress> = ({ address }) => {

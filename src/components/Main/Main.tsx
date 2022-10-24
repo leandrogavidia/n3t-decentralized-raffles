@@ -6,11 +6,17 @@ import mp4N3tVideo from "@assets/videos/n3t-video.mp4";
 import videoPoster from "@assets/images/video-poster.png";
 import goldenSpiderMan from "@assets/images/NFTs/golden-spider-man-n3t.png";
 import styled from "styled-components";
+import { theme } from "@styles/theme";
 
 const MainElement = styled.main`
     width: 100%;
 
     & > .MainElement_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 10rem;
         margin: 0 auto;
         max-width: 1920px;
         padding: 2rem 2.4rem;
@@ -38,10 +44,6 @@ const FirstSection = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        &::first-line {
-            color: blue;
-        }
 
         & > strong {
             font-size: 13rem;
@@ -120,6 +122,163 @@ const FirstSection = styled.section`
     }
 `
 
+const SecondSection = styled.section`
+    & > article {
+        display: grid;
+        grid-template-rows: auto auto;
+        align-items: center;
+        justify-items: center;
+        grid-row-gap: 4rem;
+
+        & > img {
+            width: 100%;
+            height: auto;
+            user-select: none;
+        }
+
+        & > h3 {
+            font-size: ${({ theme }) => theme.font.size.phone.large}rem;
+            font-weight: ${({ theme }) => theme.font.weight.light};
+            text-align: center;
+            line-height: 2.8rem;
+        }
+    }
+`
+
+const ThirdSection = styled.section`
+    & > article {
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        justify-items: center;
+        align-items: center;
+        grid-row-gap: 4rem;
+
+        & > .ThirdSection_prize {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+            & > strong {
+                display: grid;
+                place-content: center;
+                border-radius: 0.4rem;
+                color: ${({ theme }) => theme.colors.primary};
+                font-size: ${({ theme }) => theme.font.size.phone.small}rem;
+                font-weight: ${({ theme }) => theme.font.weight.semiBold};
+                background-color: ${({ theme }) => theme.colors.secondary};
+                min-width: 13rem;
+                min-height: 2.8rem;
+                text-shadow: 0 0 0.3rem ${({  theme  }) => theme.colors.primary};
+                margin-bottom: -1.6rem;
+                position: relative;
+                z-index: 10000;
+            }
+
+            & > figure {
+                width: 100%;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        & > .ThirdSection_participate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            & > h2 {
+                font-size: ${({ theme }) => theme.font.size.phone.large}rem;
+                font-weight: ${({ theme }) => theme.font.weight.semiBold};
+                margin-bottom: 1.2rem;
+            }
+
+            p {
+                font-size: ${({ theme }) => theme.font.size.phone.medium}rem;
+                font-weight: ${({ theme }) => theme.font.weight.light};
+                line-height: 2.8rem;
+            
+                strong {
+                    color: ${({ theme }) => theme.colors.primary};
+                    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+                }
+            }
+
+            p:last-child {
+                margin-top: 2rem;
+            }
+
+            & > button {
+                min-width: 13rem;
+                min-height: 2.8rem;
+                border: none;
+                color: ${({ theme }) => theme.colors.white};
+                background-color: ${({ theme }) => theme.colors.secondary};
+                border-radius: 0.4rem;
+                font-size: ${({ theme }) => theme.font.size.phone.small}rem;
+                font-weight: ${({ theme }) => theme.font.weight.semiBold};
+                cursor: pointer;
+                transition: 0.1s color;
+                margin: 2rem auto 4rem auto;
+
+                &:hover {
+                    background-image: ${({ theme }) => theme.colors.gradient};
+                    color: ${({ theme }) => theme.colors.secondary};
+                }
+            }
+        }
+
+        & > .ThirdSection_participants {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 1.6rem;
+            text-align: center;
+            line-height: 2.4rem;
+            border-block-start: 0.1rem solid rgba(0, 0, 0, 0.1);
+            padding-top: 2rem;
+
+            li {
+                font-size: ${({ theme }) => theme.font.size.phone.small}rem;
+            
+                span {
+                    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+                }
+            }
+        }
+    }
+`
+
+const FourthSection = styled.section`
+    & > article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 4rem;
+
+        & > video {
+            width: 100%;
+        }
+
+        & > h3 {
+            font-size: ${({ theme }) => theme.font.size.phone.large}rem;
+            font-weight: ${({ theme }) => theme.font.weight.light};
+            text-align: center;
+            line-height: 2.8rem;
+        }
+    }
+`
+
 const Main: FC = () => {
     return (
         <MainElement>
@@ -142,7 +301,7 @@ const Main: FC = () => {
                     </article>
                 </FirstSection>
 
-                <section>
+                <SecondSection>
                     <article>
                         <img 
                             src={firstSectionLogo} 
@@ -153,23 +312,16 @@ const Main: FC = () => {
                         />
                         <h3>
                             Our mission and vision is to create a space in where people and companies participate and create honest  raffles. 
-
+                            <br/><br/>
                             We want to be the main platform for online raffles, but using blockchain technology to achieve it. Mainly, we focus on NFTs raffles.
                         </h3>
                     </article>
-                </section>
+                </SecondSection>
 
-                <section>
+                <ThirdSection>
                     <article>
-                        <div>
-                            <h2>Participate and win an NFT!</h2>
-                            <p>The raffles run within the <strong>blockchain Ethereum</strong>.</p>
-                            <p>Time to announce the winner: 24:00</p>
-                            <p>Participants: · Maximum 100 participants.</p>
-                            <button>Participate</button>
-                        </div>
-                        <div>
-                            <strong>Today's award</strong>
+                        <div className="ThirdSection_prize">
+                            <strong>Today's prize</strong>
                             <figure>
                                 <img 
                                     src={goldenSpiderMan} 
@@ -180,17 +332,24 @@ const Main: FC = () => {
                                 />
                             </figure>
                         </div>
-                        <ol>
-                            <li>Wallet 1: 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
-                            <li>Wallet 2: 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
-                            <li>Wallet 3: 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
-                            <li>Wallet 4: 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
-                            <li>Wallet 5: 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
+                        <div className="ThirdSection_participate">
+                            <h2>Participate and win an NFT!</h2>
+                            <p>The raffles run within the <strong>blockchain Ethereum</strong>.</p>
+                            <button>Participate</button>
+                            <p>Time to announce the winner: 24:00</p>
+                            <p>Participants: <br/> · Maximum 100 participants.</p>
+                        </div>
+                        <ol className="ThirdSection_participants">
+                            <li><span>Wallet 1:</span> 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
+                            <li><span>Wallet 2:</span> 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
+                            <li><span>Wallet 3:</span> 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
+                            <li><span>Wallet 4:</span> 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
+                            <li><span>Wallet 5:</span> 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>
                         </ol>
                     </article>
-                </section>
+                </ThirdSection>
 
-                <section>
+                <FourthSection>
                     <article>
                         <video 
                             controls 
@@ -203,11 +362,11 @@ const Main: FC = () => {
                         </video>
                         <h3>
                             We would like to be more than a platform, we would like to be a link between people and blockchain technology.
-
+                            <br/><br/>
                             We want to promote the adoption in the world of blockchain, cryptocurrencies and web3.
                         </h3>
                     </article>
-                </section>
+                </FourthSection>
             </div>
         </MainElement>
     )
