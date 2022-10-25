@@ -207,10 +207,10 @@ const Header: FC = () => {
                                     <a href="https://github.com/leandrogavidia/n3t-decentralized-raffles" target="_blank">Repository on GitHub</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.figma.com/file/ng6mRL71eBo8rbSHQ1MKcF/N3T-decentralized-raffles?node-id=0%3A1" target="_blank">Logo project on Figma</a>
+                                    <a href="https://www.figma.com/file/ng6mRL71eBo8rbSHQ1MKcF/N3T-decentralized-raffles?node-id=0%3A1" target="_blank">Web project on Figma</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.behance.net/gallery/132158333/N3T-Decentralized-raffles" target="_blank">Web design project on Behance</a>
+                                    <a href="https://www.behance.net/gallery/132158333/N3T-Decentralized-raffles" target="_blank">Logo design project on Behance</a>
                                 </li>
                             </ul>
                         </li>
