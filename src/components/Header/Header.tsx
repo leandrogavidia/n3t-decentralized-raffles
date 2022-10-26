@@ -25,6 +25,7 @@ const HeaderElement = styled.header`
         & > .Header_logo {
             cursor: pointer;
             user-select: none;
+            object-fit: contain;
         }
 
         & > .Header_walletButton {
@@ -38,6 +39,7 @@ const HeaderElement = styled.header`
         & > .Header_dropdown {
             img {
                 cursor: pointer;
+                object-fit: contain;
             }
         }
 
@@ -136,6 +138,97 @@ const HeaderElement = styled.header`
             }
 
         }
+
+        .Header_menu--hidden {
+            display: none;
+        }
+    }
+
+    @media (min-width: 600px) {
+        & > nav {
+            & > .Header_logo {
+                width: 8.4rem;
+                height: auto;
+            }
+
+            & > .Header_dropdown {
+                & > img {
+                    height: 3rem;
+                    width: 3rem;
+                }
+            }
+
+            & > .Header_menu {
+                row-gap: 1.6rem;
+
+                li {
+                    font-size: ${({ theme }) => theme.font.size.tablet.small}rem;
+                }
+
+                & > .Header_isSubMenu {
+                    & > .Header_submenu {
+                        row-gap: 1.6rem;
+                        margin-top: 2rem;
+                    }
+                }
+            }
+
+        }
+    }
+
+    @media (min-width: 1000px) {
+        & > nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 4.8rem;
+            column-gap: 2.4rem;
+
+            & > .Header_logo {
+                width: 14.5rem;
+                order: 1;
+            }
+
+            & > .Header_walletButton {
+                position: relative;
+                z-index: 10000;
+                order: 3;
+
+                img {
+                    display: none;
+                }
+            }
+
+            & > .Header_menu {
+                order: 2;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                column-gap: 20px;
+                border-top: none;
+                padding: 0;
+
+                li {
+                    font-size: ${({ theme }) => theme.font.size.desktop.small}rem;
+                }
+
+                & > .Header_isSubMenu {
+
+                    & > .Header_submenu {
+                        position: absolute;
+                        background-color: ${({ theme }) => theme.colors.secondary};
+                        margin: 0;
+                        padding: 2rem;
+                        margin-left: -8rem;
+                    }
+                }
+            }
+
+            .Header_menu--hidden {
+                display: flex;
+            } 
+        }
     }
 `
 
@@ -191,31 +284,25 @@ const Header: FC = () => {
                     }
                 </div>
 
-                {
-                    dropdownIsOpen
-
-                    &&
-
-                    <ul className="Header_menu">
-                        <li>Home</li>
-                        <li>Participate</li>
-                        <li>Our dream</li>
-                        <li className={"Header_isSubMenu"}>
-                            Interesting links
-                            <ul className="Header_submenu">
-                                <li>
-                                    <a href="https://github.com/leandrogavidia/n3t-decentralized-raffles" target="_blank">Repository on GitHub</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.figma.com/file/ng6mRL71eBo8rbSHQ1MKcF/N3T-decentralized-raffles?node-id=0%3A1" target="_blank">Web project on Figma</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.behance.net/gallery/132158333/N3T-Decentralized-raffles" target="_blank">Logo design project on Behance</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                }
+                <ul className={`Header_menu ${!dropdownIsOpen && "Header_menu--hidden"}`}>
+                    <li>Home</li>
+                    <li>Participate</li>
+                    <li>Our dream</li>
+                    <li className={"Header_isSubMenu"}>
+                        Interesting links
+                        <ul className="Header_submenu">
+                            <li>
+                                <a href="https://github.com/leandrogavidia/n3t-decentralized-raffles" target="_blank">Repository on GitHub</a>
+                            </li>
+                            <li>
+                                <a href="https://www.figma.com/file/ng6mRL71eBo8rbSHQ1MKcF/N3T-decentralized-raffles?node-id=0%3A1" target="_blank">Web project on Figma</a>
+                            </li>
+                            <li>
+                                <a href="https://www.behance.net/gallery/132158333/N3T-Decentralized-raffles" target="_blank">Logo design project on Behance</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
         </HeaderElement>
     )

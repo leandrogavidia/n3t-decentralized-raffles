@@ -22,6 +22,16 @@ declare module "styled-components" {
                     small: number,
                     medium: number,
                     large: number
+                },
+                tablet: {
+                    small: number,
+                    medium: number,
+                    large: number
+                },
+                desktop: {
+                    small: number,
+                    medium: number,
+                    large: number
                 }
             }
         }

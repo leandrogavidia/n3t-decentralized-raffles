@@ -120,6 +120,21 @@ const FirstSection = styled.section`
             }
         }
     }
+
+    @media (min-width: 600px) {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        align-items: center;
+        grid-row-gap: 2rem;
+        grid-column-gap: 4rem;
+
+        & > img {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+
+            max-width: 300px;
+        }
+    }
 `
 
 const SecondSection = styled.section`
@@ -132,6 +147,7 @@ const SecondSection = styled.section`
 
         & > img {
             width: 100%;
+            max-width: 380px;
             height: auto;
             user-select: none;
         }
@@ -141,6 +157,16 @@ const SecondSection = styled.section`
             font-weight: ${({ theme }) => theme.font.weight.light};
             text-align: center;
             line-height: 2.8rem;
+        }
+    }
+
+    @media(min-width: 600px) {
+        & > article {
+
+            & > h3 {
+                font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
+                line-height: 4rem;
+            }
         }
     }
 `
@@ -179,6 +205,7 @@ const ThirdSection = styled.section`
             & > figure {
                 width: 100%;
                 position: relative;
+                max-width: 380px;
 
                 img {
                     width: 100%;
@@ -222,7 +249,7 @@ const ThirdSection = styled.section`
                 color: ${({ theme }) => theme.colors.white};
                 background-color: ${({ theme }) => theme.colors.secondary};
                 border-radius: 0.4rem;
-                font-size: ${({ theme }) => theme.font.size.phone.small}rem;
+                font-size: ${({ theme }) => theme.font.size.phone.medium}rem;
                 font-weight: ${({ theme }) => theme.font.weight.semiBold};
                 cursor: pointer;
                 transition: 0.1s color;
@@ -256,6 +283,41 @@ const ThirdSection = styled.section`
             }
         }
     }
+
+    @media(min-width: 600px) {
+        & > article {
+            & > .ThirdSection_prize {
+                & > strong {
+                    font-size: ${({ theme }) => theme.font.size.tablet.small}rem;
+                    min-width: 15.6rem;
+                    min-height: 3.4rem;
+                }
+            }
+
+            & > .ThirdSection_participate {
+                & > h2 {
+                    font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
+                }
+
+                p {
+                    font-size: ${({ theme }) => theme.font.size.tablet.medium}rem;
+                }
+
+                & > button {
+                    min-width: 15.6rem;
+                    min-height: 4.2rem;
+                    font-size: ${({ theme }) => theme.font.size.tablet.medium}rem;
+                    margin: 3.2rem auto 5.2rem auto;
+                }
+            }
+
+            & > .ThirdSection_participants {
+                li {
+                    font-size: ${({ theme }) => theme.font.size.tablet.small}rem;
+                }
+            }
+        }
+    }
 `
 
 const FourthSection = styled.section`
@@ -275,6 +337,15 @@ const FourthSection = styled.section`
             font-weight: ${({ theme }) => theme.font.weight.light};
             text-align: center;
             line-height: 2.8rem;
+        }
+    }
+
+    @media(min-width: 600px) {
+        & > article {
+            & > h3 {
+                font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
+                line-height: 4rem;
+            }
         }
     }
 `

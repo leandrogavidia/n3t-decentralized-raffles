@@ -15,9 +15,20 @@ const Button = styled.button`
     font-size: ${({ theme }) => theme.font.size.phone.small}rem;
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
     transition: 0.2s color;
+    white-space: nowrap;
 
     :hover {
         color: ${({ theme }) => theme.colors.secondary};
+    }
+
+    @media (min-width: 600px) {
+        padding: 0.4rem 1rem;
+        font-size: ${({ theme }) => theme.font.size.tablet.small}rem;
+    }
+
+    @media (min-width: 1000px) {
+        font-size: ${({ theme }) => theme.font.size.desktop.small}rem;
+        padding: 0.6rem 1.2rem;
     }
 `
 

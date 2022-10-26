@@ -21,6 +21,16 @@ const theme: DefaultTheme = {
                 small: 1,
                 medium: 1.4,
                 large: 1.8
+            },
+            tablet: {
+                small: 1.6,
+                medium: 2,
+                large: 2.4
+            },
+            desktop: {
+                small: 1.8,
+                medium: 2.6,
+                large: 3
             }
         }
     }

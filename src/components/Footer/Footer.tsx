@@ -10,6 +10,7 @@ import styled from "styled-components";
 const FooterComponent = styled.footer`
     background-color: ${({ theme }) => theme.colors.secondary};
     width: 100%;
+    margin-top: 10rem;
 
     & > div {
         max-width: 1920px;
@@ -106,6 +107,43 @@ const FooterComponent = styled.footer`
 
                 & > span {
                     color: ${({ theme }) => theme.colors.primary};
+                }
+            }
+        }
+    }
+
+    @media(min-width: 600px) {
+        & > div {
+            & > div {
+                & > .Footer_socialNetworks {
+                    & > p {
+                        font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
+                    }
+
+                    & > ul {
+                        column-gap: 3.2rem;
+
+                        li a img{
+                            width: 4.8rem;
+                            height: 4.8rem;
+                        }
+                    }
+                }
+
+                & > .Footer_interestingLinks {
+                    & > p {
+                        font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
+                    }
+
+                    & > ul {
+                        & > li {
+                            font-size: ${({ theme }) => theme.font.size.tablet.medium}rem;
+                        }
+                    }
+                }
+
+                & > .Footer_owner {
+                    font-size: ${({ theme }) => theme.font.size.tablet.medium}rem;
                 }
             }
         }
