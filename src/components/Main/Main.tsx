@@ -6,7 +6,6 @@ import mp4N3tVideo from "@assets/videos/n3t-video.mp4";
 import videoPoster from "@assets/images/video-poster.png";
 import goldenSpiderMan from "@assets/images/NFTs/golden-spider-man-n3t.png";
 import styled from "styled-components";
-import { theme } from "@styles/theme";
 
 const MainElement = styled.main`
     width: 100%;
@@ -23,6 +22,14 @@ const MainElement = styled.main`
 
         section {
             width: 100%;
+            max-width: 1100px;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        & > .MainElement_container {
+            padding: 10rem 2.4rem;
+            row-gap: 16rem;
         }
     }
 `
@@ -87,6 +94,7 @@ const FirstSection = styled.section`
             align-items: center;
             justify-items: center;
             grid-column-gap: 2.4rem;
+            width: 100%;
 
             button {
                 min-width: 13.2rem;
@@ -135,6 +143,36 @@ const FirstSection = styled.section`
             max-width: 300px;
         }
     }
+
+    @media (min-width: 1000px) {
+        grid-column-gap: 6rem;
+        
+        & > .FirstSection_title {
+            font-size: 4rem;
+
+            & > strong {
+                font-size: 21.1rem;
+            }
+        }
+
+        & > img {
+            max-width: 45rem;
+        }
+
+        & > .FirstSection_info {
+            & > h1 {
+                font-size: ${({ theme }) => theme.font.size.desktop.medium}rem;
+                line-height: 4rem; 
+            }
+
+            & > div {
+                button {
+                    font-size: ${({ theme }) => theme.font.size.desktop.small}rem;
+                    padding: 1.2rem 0.8rem;
+                }
+            }
+        }
+    }
 `
 
 const SecondSection = styled.section`
@@ -160,12 +198,30 @@ const SecondSection = styled.section`
         }
     }
 
-    @media(min-width: 600px) {
+    @media (min-width: 600px) {
         & > article {
 
             & > h3 {
                 font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
                 line-height: 4rem;
+            }
+        }
+    }
+
+    @media (min-width: 1000px) {
+        & > article {
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 6rem;
+
+            & > img {
+                max-width: 50rem;
+            }
+
+            & > h3 {
+                line-height: 4rem;
+                text-align: left;
+                font-size: ${({ theme }) => theme.font.size.desktop.medium}rem;
             }
         }
     }
@@ -240,6 +296,11 @@ const ThirdSection = styled.section`
 
             p:last-child {
                 margin-top: 2rem;
+
+                span {
+                    font-size: ${({ theme }) => theme.font.size.phone.large}rem;
+                    font-weight: ${({ theme }) => theme.font.weight.semiBold};
+                }
             }
 
             & > button {
@@ -273,6 +334,7 @@ const ThirdSection = styled.section`
             line-height: 2.4rem;
             border-block-start: 0.1rem solid rgba(0, 0, 0, 0.1);
             padding-top: 2rem;
+            width: 100%;
 
             li {
                 font-size: ${({ theme }) => theme.font.size.phone.small}rem;
@@ -303,6 +365,15 @@ const ThirdSection = styled.section`
                     font-size: ${({ theme }) => theme.font.size.tablet.medium}rem;
                 }
 
+                p:last-child {
+                    margin-top: 3rem;
+                    line-height: 3.2rem;
+
+                    span {
+                        font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
+                    }
+                }
+
                 & > button {
                     min-width: 15.6rem;
                     min-height: 4.2rem;
@@ -318,6 +389,68 @@ const ThirdSection = styled.section`
             }
         }
     }
+
+    @media(min-width: 1000px) {
+        & > article {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            grid-row-gap: 6rem;
+
+            & > .ThirdSection_prize {
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+            }
+
+            & > .ThirdSection_participate {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+
+                & > h2 {
+                    font-size: ${({ theme }) => theme.font.size.desktop.large}rem;
+                    margin-bottom: 2rem;
+                }
+
+                p {
+                    font-size: ${({ theme }) => theme.font.size.desktop.medium}rem;
+                }
+
+                p:nth-child(4) {
+                    margin-top: 5.2rem;
+                }
+
+                p:last-child {
+                    font-size: ${({ theme }) => theme.font.size.desktop.small}rem;
+                    margin-top: 3.2rem;
+
+                    span {
+                        font-size: ${({ theme }) => theme.font.size.desktop.medium}rem;
+                    }
+                }
+
+                & > button {
+                    min-width: 13rem;
+                    min-height: 2.8rem;
+                    padding: 0.8rem 2.8rem;
+                    font-size: ${({ theme }) => theme.font.size.desktop.medium}rem;
+                    margin: 0;
+                    order: 5;
+                    margin-top: 4rem;
+                }
+            }
+
+            & > .ThirdSection_participants {
+                grid-column: 1 / 3;
+                grid-row: 2 / 3;
+                row-gap: 3.2rem;
+                padding-top: 6rem;
+                justify-content: flex-start;
+
+                li {
+                    font-size: ${({ theme }) => theme.font.size.desktop.medium}rem;
+                }
+            }
+        }
+    }   
 `
 
 const FourthSection = styled.section`
@@ -340,11 +473,21 @@ const FourthSection = styled.section`
         }
     }
 
-    @media(min-width: 600px) {
+    @media (min-width: 600px) {
         & > article {
             & > h3 {
                 font-size: ${({ theme }) => theme.font.size.tablet.large}rem;
                 line-height: 4rem;
+            }
+        }
+    }
+
+    @media (min-width: 1000px) {
+        & > article {
+            & > h3 {
+                margin-top: 2.4rem;
+                line-height: 5.2rem;
+                font-size: ${({ theme }) => theme.font.size.desktop.large}rem;
             }
         }
     }
@@ -408,7 +551,7 @@ const Main: FC = () => {
                             <p>The raffles run within the <strong>blockchain Ethereum</strong>.</p>
                             <button>Participate</button>
                             <p>Time to announce the winner: 24:00</p>
-                            <p>Participants: <br/> · Maximum 100 participants.</p>
+                            <p><span>Participants:</span> <br/> · Maximum 100 participants.</p>
                         </div>
                         <ol className="ThirdSection_participants">
                             <li><span>Wallet 1:</span> 0x6FD7FB63efb93395c113a63422a54B41aBc5533D</li>

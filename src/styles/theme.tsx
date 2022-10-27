@@ -29,8 +29,8 @@ const theme: DefaultTheme = {
             },
             desktop: {
                 small: 1.8,
-                medium: 2.6,
-                large: 3
+                medium: 2.4,
+                large: 3.2
             }
         }
     }
