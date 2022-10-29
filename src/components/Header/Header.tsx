@@ -20,7 +20,7 @@ const HeaderElement = styled.header`
         justify-items: start;
         margin: 0 auto;
         padding: 2rem 2.4rem;
-        max-width: 1920px;
+        max-width: 1600px;
 
         & > .Header_logo {
             cursor: pointer;

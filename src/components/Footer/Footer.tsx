@@ -13,7 +13,7 @@ const FooterComponent = styled.footer`
     margin-top: 10rem;
 
     & > div {
-        max-width: 1920px;
+        max-width: 1100px;
         margin: 0 auto;
         display: grid;
         grid-template-rows: repeat(2, auto);
@@ -144,6 +144,46 @@ const FooterComponent = styled.footer`
 
                 & > .Footer_owner {
                     font-size: ${({ theme }) => theme.font.size.tablet.medium}rem;
+                }
+            }
+        }
+    }
+
+    @media(min-width: 1000px) {
+        & > div {
+            grid-template-columns: auto auto;
+            grid-template-rows: 1fr;
+            grid-column-gap: 6rem;
+            grid-row-gap: 0;
+
+            & > div {
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto;
+                grid-row-gap: 4.8rem;
+                grid-column-gap: 4rem;
+                align-items: start;
+                justify-items: start;
+
+                & > .Footer_socialNetworks {
+                    grid-column: 2 / 3;
+                    grid-row: 1 / 2;
+
+                    align-items: flex-start;
+                }
+
+                & > .Footer_interestingLinks {
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 2;
+                    align-items: flex-start;
+
+                    ul {
+                        align-items: flex-start;
+                    }
+                }
+
+                & > .Footer_owner {
+                    grid-column: 1 / 3;
+                    grid-row: 2 / 3;
                 }
             }
         }
