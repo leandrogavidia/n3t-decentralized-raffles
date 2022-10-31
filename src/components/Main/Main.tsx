@@ -4,8 +4,8 @@ import firstSectionLogo from "@assets/images/first-section-n3t-logo-.png";
 import mp4N3tVideo from "@assets/videos/n3t-video.mp4";
 // import aviN3tVideo from "@assets/videos/n3t-video.avi";
 import videoPoster from "@assets/images/video-poster.png";
-import goldenSpiderMan from "@assets/images/NFTs/golden-spider-man-n3t.png";
 import styled from "styled-components";
+import { NftsCarousel } from "@components/NftsCarousel/NftsCarousel";
 
 const MainElement = styled.main`
     width: 100%;
@@ -235,41 +235,6 @@ const ThirdSection = styled.section`
         align-items: center;
         grid-row-gap: 4rem;
 
-        & > .ThirdSection_prize {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-
-            & > strong {
-                display: grid;
-                place-content: center;
-                border-radius: 0.4rem;
-                color: ${({ theme }) => theme.colors.primary};
-                font-size: ${({ theme }) => theme.font.size.phone.small}rem;
-                font-weight: ${({ theme }) => theme.font.weight.semiBold};
-                background-color: ${({ theme }) => theme.colors.secondary};
-                min-width: 13rem;
-                min-height: 2.8rem;
-                text-shadow: 0 0 0.3rem ${({  theme  }) => theme.colors.primary};
-                margin-bottom: -1.6rem;
-                position: relative;
-                z-index: 10000;
-            }
-
-            & > figure {
-                width: 100%;
-                position: relative;
-                max-width: 380px;
-
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-            }
-        }
-
         & > .ThirdSection_participate {
             display: flex;
             flex-direction: column;
@@ -348,13 +313,6 @@ const ThirdSection = styled.section`
 
     @media(min-width: 600px) {
         & > article {
-            & > .ThirdSection_prize {
-                & > strong {
-                    font-size: ${({ theme }) => theme.font.size.tablet.small}rem;
-                    min-width: 15.6rem;
-                    min-height: 3.4rem;
-                }
-            }
 
             & > .ThirdSection_participate {
                 & > h2 {
@@ -395,11 +353,6 @@ const ThirdSection = styled.section`
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, auto);
             grid-row-gap: 6rem;
-
-            & > .ThirdSection_prize {
-                grid-column: 2 / 3;
-                grid-row: 1 / 2;
-            }
 
             & > .ThirdSection_participate {
                 grid-column: 1 / 2;
@@ -534,18 +487,7 @@ const Main: FC = () => {
 
                 <ThirdSection>
                     <article>
-                        <div className="ThirdSection_prize">
-                            <strong>Today's prize</strong>
-                            <figure>
-                                <img 
-                                    src={goldenSpiderMan} 
-                                    alt="Emerald Spider-man NFT" 
-                                    title="Emerald Spider-man NFT" 
-                                    width="312" 
-                                    height="312" 
-                                />
-                            </figure>
-                        </div>
+                        <NftsCarousel />
                         <div className="ThirdSection_participate">
                             <h2>Participate and win an NFT!</h2>
                             <p>The raffles run within the <strong>blockchain Ethereum</strong>.</p>
