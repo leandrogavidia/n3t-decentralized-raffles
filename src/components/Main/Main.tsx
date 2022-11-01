@@ -6,6 +6,9 @@ import mp4N3tVideo from "@assets/videos/n3t-video.mp4";
 import videoPoster from "@assets/images/video-poster.png";
 import styled from "styled-components";
 import { NftsCarousel } from "@components/NftsCarousel/NftsCarousel";
+import goldenSpiderMan from "@assets/images/NFTs/golden-spider-man-n3t.png";
+import sapphireSpiderMan from "@assets/images/NFTs/sapphire-spider-man-n3t.png";
+import emeraldSpiderMan from "@assets/images/NFTs/emerald-spider-man-n3t.png";
 
 const MainElement = styled.main`
     width: 100%;
@@ -447,6 +450,30 @@ const FourthSection = styled.section`
 `
 
 const Main: FC = () => {
+    interface NftItem {
+        img: string,
+        title: string,
+        alt: string
+    }
+
+    const NftsList: NftItem[] = [
+        {
+            img: goldenSpiderMan,
+            title: "Golden Spider-man NFT",
+            alt: "Golden Spider-man NFT"
+        },
+        {
+            img: sapphireSpiderMan,
+            title: "Sapphire Spider-man NFT",
+            alt: "Sapphire Spider-man NFT"
+        },
+        {
+            img: emeraldSpiderMan,
+            title: "Emerald Spider-man NFT",
+            alt: "Emerald Spider-man NFT"
+        },
+    ]
+
     return (
         <MainElement>
             <div className="MainElement_container">
@@ -487,7 +514,7 @@ const Main: FC = () => {
 
                 <ThirdSection>
                     <article>
-                        <NftsCarousel />
+                        <NftsCarousel nftsList={NftsList} interval={3000} />
                         <div className="ThirdSection_participate">
                             <h2>Participate and win an NFT!</h2>
                             <p>The raffles run within the <strong>blockchain Ethereum</strong>.</p>

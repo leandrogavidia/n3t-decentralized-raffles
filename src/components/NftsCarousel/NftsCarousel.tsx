@@ -1,7 +1,4 @@
-import { FC } from "react";
-import goldenSpiderMan from "@assets/images/NFTs/golden-spider-man-n3t.png";
-import sapphireSpiderMan from "@assets/images/NFTs/sapphire-spider-man-n3t.png";
-import emeraldSpiderMan from "@assets/images/NFTs/emerald-spider-man-n3t.png";
+import { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import chevron from "@assets/images/icons/chevron.svg";
 
@@ -42,6 +39,7 @@ const Container = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                transition: 0.1s background;
 
                 &:first-child {
                     left: 0;
@@ -60,21 +58,28 @@ const Container = styled.div`
                     width: 1.2rem;
                     height: auto;
                 }
+
+                &:hover {
+                    background-color: rgba(255, 219, 95, 1);
+                }
             }
 
             & > ul {
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
-                max-height: 421px;
+                max-height: 42.1rem;
                 overflow: hidden;
 
                 li {
+                    transition: 0.2s margin;
+                    margin: 0;
+
                     figure {
                         img {
                             width: 100%;
                             height: auto;
-                            max-width: 380px;
+                            max-width: 27rem;
                         }
 
                         figcaption {
@@ -90,16 +95,13 @@ const Container = styled.div`
                     }
                 }
 
-                .current {
-                    margin: 0;
-                }
-    
-                .previous {
+                .Container_previous {
                     margin-left: -100%;
                 }
-    
-                .next {
-                    margin-right: -100%;
+
+                .Container_current {
+                    margin-left: 0;
+                    margin-right: 0;
                 }
             }
         }
@@ -117,6 +119,9 @@ const Container = styled.div`
             & > ul {
                 li {
                     figure {
+                        img {
+                            max-width: 38rem;
+                        }
                         figcaption {
                             font-size: ${({ theme }) => theme.font.size.tablet.small}rem;
                         }
@@ -132,51 +137,62 @@ const Container = styled.div`
     }
 `
 
-const NftsCarousel: FC = () => {
-    interface NftItem {
-        img: string,
-        title: string,
-        alt: string
-    }
+interface NftItem {
+    img: string,
+    title: string,
+    alt: string
+}
 
-    const NftsList: NftItem[] = [
-        {
-            img: goldenSpiderMan,
-            title: "Golden Spider-man NFT",
-            alt: "Golden Spider-man NFT"
-        },
-        {
-            img: sapphireSpiderMan,
-            title: "Sapphire Spider-man NFT",
-            alt: "Sapphire Spider-man NFT"
-        },
-        {
-            img: emeraldSpiderMan,
-            title: "Emerald Spider-man NFT",
-            alt: "Emerald Spider-man NFT"
-        },
-    ]
+interface NftsCarouselInterface {
+    nftsList: NftItem[]
+    interval: number
+}
+
+const NftsCarousel: FC<NftsCarouselInterface> = ({nftsList, interval }) => {
+
+    const initialState:number = 0;
+    const [currentPosition, setCurrentPosition] = useState<number>(initialState);
 
     const nextNft = ():void => {
-        //
+        setCurrentPosition(prevState => prevState + 1)
     }
 
     const previousNft = ():void => {
-        //
+        setCurrentPosition(prevState => prevState - 1)
     }
+
+    useEffect(() => {
+        if(currentPosition === nftsList.length) setCurrentPosition(initialState);
+        if (currentPosition < initialState) setCurrentPosition(nftsList.length - 1);
+
+        const carouselInterval = setTimeout(() => {
+            setCurrentPosition(currentPosition + 1);
+        }, interval) 
+        
+        return () => clearTimeout(carouselInterval);
+    }, [currentPosition])
 
     return (
         <Container>
             <strong>Today's prize</strong>
             <div className="image-container">
-                <span onClick={nextNft}>
-                    <img src={chevron} alt="chevron" title="chevron" />
+                <span onClick={previousNft}>
+                    <img src={chevron} alt="Previous NFT" title="Previous NFT" />
                 </span>
                 <ul>
                     {
-                        NftsList.map(nft => {
+                        nftsList.map((nft, index) => {
                             return (
-                                <li key={nft.img}>
+                                <li key={nft.img} 
+                                
+                                    className={
+                                        index === currentPosition ? "Container_current" :
+                                    
+                                        currentPosition < 0 ? "Container_current" :
+
+                                        index < currentPosition ? "Container_previous" : ""
+                                    }
+                                >
                                     <figure>
                                         <img key={nft.img} src={nft.img} alt={nft.alt} title={nft.title} width="312" height="312" />
                                         <figcaption>{nft.title}</figcaption>
@@ -186,8 +202,8 @@ const NftsCarousel: FC = () => {
                         })
                     }
                 </ul>
-                <span onClick={previousNft}>
-                    <img src={chevron} alt="chevron" title="chevron" />
+                <span onClick={nextNft}>
+                    <img src={chevron} alt="Next NFT" title="Next NFT" />
                 </span>
             </div>
         </Container>
