@@ -33,8 +33,11 @@ const Button = styled.button`
 `
 
 const WalletButton: FC<WalletAddress> = ({ address }) => {
+
+    const connectWallet = ():void => alert("Here you will connect your wallet")
+
     return (
-        <Button title="Wallet button">
+        <Button onClick={connectWallet} title="Wallet button">
             {
                 address
 

@@ -1,8 +1,7 @@
-import { FC } from "react"
+import { FC, MouseEventHandler } from "react"
 import n3tChest from "@assets/images/n3t-chest-illustration.png";
 import firstSectionLogo from "@assets/images/first-section-n3t-logo-.png";
 import mp4N3tVideo from "@assets/videos/n3t-video.mp4";
-// import aviN3tVideo from "@assets/videos/n3t-video.avi";
 import videoPoster from "@assets/images/video-poster.png";
 import styled from "styled-components";
 import { NftsCarousel } from "@components/NftsCarousel/NftsCarousel";
@@ -99,6 +98,10 @@ const FirstSection = styled.section`
             grid-column-gap: 2.4rem;
             width: 100%;
 
+            a {
+                width: 100%;
+            }
+            
             button {
                 min-width: 13.2rem;
                 min-height: 2.8rem;
@@ -129,6 +132,7 @@ const FirstSection = styled.section`
                     }
                 }
             }
+
         }
     }
 
@@ -450,11 +454,6 @@ const FourthSection = styled.section`
 `
 
 const Main: FC = () => {
-    interface NftItem {
-        img: string,
-        title: string,
-        alt: string
-    }
 
     const NftsList: NftItem[] = [
         {
@@ -474,10 +473,12 @@ const Main: FC = () => {
         },
     ]
 
+    const participate = ():void => alert("Here you will start to participate");
+
     return (
         <MainElement>
             <div className="MainElement_container">
-                <FirstSection>
+                <FirstSection id="home-section">
                     <p className="FirstSection_title"><strong>N<span>3</span>T</strong> Decentralized raffles</p>
                     <img 
                         src={n3tChest} 
@@ -489,13 +490,13 @@ const Main: FC = () => {
                     <article className="FirstSection_info">
                         <h1>Decentralized raffles, a new way for chance to be completely safe, transparent and uncontrollable.</h1>
                         <div>
-                            <button>How do I participate?</button>
-                            <button>The N<span>3</span>T’s dream</button>
+                            <a href="/#participate-section"><button>How do I participate?</button></a>
+                            <a href="/#our-dream-section"><button>The N<span>3</span>T’s dream</button></a>
                         </div>
                     </article>
                 </FirstSection>
 
-                <SecondSection>
+                <SecondSection id="our-dream-section">
                     <article>
                         <img 
                             src={firstSectionLogo} 
@@ -512,13 +513,13 @@ const Main: FC = () => {
                     </article>
                 </SecondSection>
 
-                <ThirdSection>
+                <ThirdSection id="participate-section">
                     <article>
                         <NftsCarousel nftsList={NftsList} interval={3000} />
                         <div className="ThirdSection_participate">
                             <h2>Participate and win an NFT!</h2>
                             <p>The raffles run within the <strong>blockchain Ethereum</strong>.</p>
-                            <button>Participate</button>
+                            <button onClick={participate}>Participate</button>
                             <p>Time to announce the winner: 24:00</p>
                             <p><span>Participants:</span> <br/> · Maximum 100 participants.</p>
                         </div>

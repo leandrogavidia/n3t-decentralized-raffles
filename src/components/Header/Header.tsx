@@ -9,6 +9,10 @@ const HeaderElement = styled.header`
     width: 100%;
     min-height: 4rem;
     background-color: ${({ theme }) => theme.colors.secondary};
+    position: sticky;
+    top: 0;
+    z-index: 20000;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.4) ;
 
     & > nav {
         display: grid;
@@ -65,6 +69,11 @@ const HeaderElement = styled.header`
                 transition: 0.4s color;
                 font-size: ${({ theme }) => theme.font.size.phone.small}rem;
                 font-weight: ${({ theme }) => theme.font.weight.light};
+
+                a {
+                    color: ${({ theme }) => theme.colors.white};
+                    text-decoration: none;
+                }
                 
                 &::before, &::after {
                     content: "";
@@ -85,7 +94,9 @@ const HeaderElement = styled.header`
                 }
 
                 &:hover {
-                    color: ${({ theme }) => theme.colors.primary};
+                    a {
+                        color: ${({ theme }) => theme.colors.primary};
+                    }
                     
                     &::after, &::before {
                         transform: translateX(0);
@@ -285,9 +296,9 @@ const Header: FC = () => {
                 </div>
 
                 <ul className={`Header_menu ${!dropdownIsOpen && "Header_menu--hidden"}`}>
-                    <li>Home</li>
-                    <li>Participate</li>
-                    <li>Our dream</li>
+                    <li><a href="/#home-section">Home</a></li>
+                    <li><a href="/#our-dream-section">Our dream</a></li>
+                    <li><a href="/#participate-section">Participate</a></li>
                     <li className={"Header_isSubMenu"}>
                         Interesting links
                         <ul className="Header_submenu">

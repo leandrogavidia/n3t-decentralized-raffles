@@ -137,12 +137,6 @@ const Container = styled.div`
     }
 `
 
-interface NftItem {
-    img: string,
-    title: string,
-    alt: string
-}
-
 interface NftsCarouselInterface {
     nftsList: NftItem[]
     interval: number
@@ -153,14 +147,9 @@ const NftsCarousel: FC<NftsCarouselInterface> = ({nftsList, interval }) => {
     const initialState:number = 0;
     const [currentPosition, setCurrentPosition] = useState<number>(initialState);
 
-    const nextNft = ():void => {
-        setCurrentPosition(prevState => prevState + 1)
-    }
-
-    const previousNft = ():void => {
-        setCurrentPosition(prevState => prevState - 1)
-    }
-
+    const nextNft = ():void => setCurrentPosition(prevState => prevState + 1)
+    const previousNft = ():void => setCurrentPosition(prevState => prevState - 1)
+    
     useEffect(() => {
         if(currentPosition === nftsList.length) setCurrentPosition(initialState);
         if (currentPosition < initialState) setCurrentPosition(nftsList.length - 1);
