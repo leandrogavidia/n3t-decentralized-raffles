@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'N3T',
-  description: 'Decentralized Raffles',
+  description: 'N3T Decentralized Raffles'
 }
 
 export default function RootLayout({
@@ -14,7 +14,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <main>{children}
+        
+        
+        </main>
       </body>
     </html>
   )
