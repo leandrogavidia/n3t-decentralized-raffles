@@ -23,7 +23,20 @@ const config: Config = {
         "rubik": "Rubik"
       },
       textColor: {
+        "n3t-black": "#1A1A1A",
         "n3t-gray": "#2A2A2A",
+        "n3t-gold-1": "#FFB848",
+        "n3t-gold-2": "#FFDB5F",
+        "n3t-gold-3": "#FFB374",
+        "n3t-white": "#E5E5E5"
+      },
+      borderColor: {
+        "n3t-black": "#1A1A1A",
+        "n3t-gray": "#2A2A2A",
+        "n3t-gold-1": "#FFB848",
+        "n3t-gold-2": "#FFDB5F",
+        "n3t-gold-3": "#FFB374",
+        "n3t-white": "#E5E5E5"
       }
     },
   },
